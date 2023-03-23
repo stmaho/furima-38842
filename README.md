@@ -94,11 +94,11 @@
 | address1           | string      | null: false                    |
 | address2           | string      |                                |
 | phon_number        | string      | null: false                    |
-| credit_card_id     | integer     | null: false, foreign_key: true |
+| credit_card        | references  | null: false, foreign_key: true |
 
 ### Association
 
-- has_one :credit_card
+- belong_to :credit_card
 - belong_to :prefecture
 
 
@@ -112,4 +112,4 @@
 ### Association
 - belong_to :user
 - belong_to :item
-- belong_to :deliver_address
+- has_one :deliver_address
