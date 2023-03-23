@@ -6,7 +6,7 @@
 | ------------------ | ------ | ------------------------- |
 | nickname           | string | null: false               |
 | email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
+| password           | string | null: false               |
 | family_name        | string | null: false               |
 | first_name         | string | null: false               |
 | read_family        | string | null: false               |
@@ -16,7 +16,6 @@
 ### Association
 - has_many :items
 - has_many :credit_cards
-- has_one :deliver_address
 
 
 ## items テーブル
@@ -27,7 +26,7 @@
 | content            | text        | null: false                    |
 | category_id        | integer     | null: false                    |
 | condition_id       | integer     | null: false                    |
-| shopping_costs     | string      | null: false                    |
+| shopping_cost_id   | integer     | null: false                    |
 | prefecture_id      | integer     | null: false                    |
 | preparation_day_id | integer     | null: false                    |
 | price              | type        | null: false                    |
@@ -35,10 +34,10 @@
 
 ### Association
 - belong_to :user
-- belong_to :deliver_address
-- has_one :credit_card
+- has_many :credit_cards
 - belongs_to_active_hash :category
 - belongs_to_active_hash :condition
+- belong_to_active_hash :shopping_cost
 - belongs_to_active_hash :prefecture
 - belongs_to_active_hash :preparation_day
 
@@ -71,6 +70,7 @@
 
 ### Association
 - has_many :items
+- has_many :deliver_addresses
 
 
 ## preparation_days テーブル
@@ -89,17 +89,16 @@
 | Column             | Type        | Options                        |
 | ------------------ | ----------- | ------------------------------ |
 | post_code          | string      | null: false                    |
-| prefecture         | string      | null: false                    |
+| prefecture_id      | integer     | null: false                    |
 | city               | string      | null: false                    |
-| address1            | string      | null: false                    |
-| address2            | string      |                                |
+| address1           | string      | null: false                    |
+| address2           | string      |                                |
 | phon_number        | string      | null: false                    |
-| user               | references  | null: false, foreign_key: true |
 
 ### Association
-- has_one :user
-- has_one :credit_card
-- has_many :items
+
+- belong_to :credit_card
+- belong_to :prefecture
 
 
 ## credit_cards テーブル
@@ -111,5 +110,5 @@
 
 ### Association
 - belong_to :user
-- has_one :item
-- has_one :deliver_address
+- belong_to :item
+- has_many :deliver_addresses
