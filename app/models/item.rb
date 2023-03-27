@@ -1,10 +1,10 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belong_to :category
-  belong_to :condition
-  belong_to :shopping_cost
-  belong_to :prefecture
-  belong_to :preparation
+  belongs_to :category
+  belongs_to :condition
+  belongs_to :shopping_cost
+  belongs_to :prefecture
+  belongs_to :preparation
   has_one_attached :image
 
 
