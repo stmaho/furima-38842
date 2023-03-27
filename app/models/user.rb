@@ -14,7 +14,7 @@ class User < ApplicationRecord
     validates :first_name, presence: true
   end
   
-  with_options presence: true, format: { with: /\A[ァ-ヶ]+\z/} do
+  with_options presence: true, format: { with: /\A[ァ-ヶ一]+\z/} do
     validates :read_family, presence: true
     validates :read_first, presence: true
   end
