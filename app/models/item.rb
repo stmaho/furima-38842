@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :preparation
   has_one_attached :image
+  belongs_to :user
 
 
   validates :name,    presence: true

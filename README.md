@@ -37,7 +37,7 @@
 - has_one :credit_card
 - belongs_to_active_hash :category
 - belongs_to_active_hash :condition
-- belong_to_active_hash :shopping_cost
+- belongs_to_active_hash :shopping_cost
 - belongs_to_active_hash :prefecture
 - belongs_to_active_hash :preparation_day
 
