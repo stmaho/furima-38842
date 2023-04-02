@@ -28,7 +28,6 @@ def item_params
 end
 
 def move_to_index
-  @item = Item.find(params[:id])
   unless user_signed_in?
    redirect_to new_user_session_path
   end
