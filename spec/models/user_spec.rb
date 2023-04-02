@@ -119,6 +119,12 @@ RSpec.describe User, type: :model do
         @user.valid?  
         expect(@user.errors.full_messages).to include("Read first is invalid")
       end
+
+      it 'userが紐付いていないと保存できない' do
+        @item.user = nil
+        @message.valid?
+        expect(@item.errors.full_messages).to include("User must exist")
+
     end
   end
 end

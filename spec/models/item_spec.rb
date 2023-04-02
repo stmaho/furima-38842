@@ -43,27 +43,27 @@ RSpec.describe Item, type: :model do
       end
 
       it 'カテゴリが空では登録できない' do
-        @item.category_id = ''
+        @item.category_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include"Category can't be blank"
       end
       it ' 商品状態が空では登録できない' do
-        @item.condition_id = ''
+        @item.condition_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include"Condition can't be blank"
       end
       it '出品費用が空では登録できない' do
-        @item.shopping_cost_id = ''
+        @item.shopping_cost_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include"Shopping cost can't be blank"
       end
       it '出品地域が空では登録できない' do
-        @item.prefecture_id = ''
+        @item.prefecture_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include"Prefecture can't be blank"
       end
       it '出品準備日数が空では登録できない' do
-        @item.preparation_id = ''
+        @item.preparation_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include"Preparation can't be blank"
       end
