@@ -13,4 +13,9 @@ class OrderAddress
     validates :phon_number
   end
 
+  def save
+    @order = Order.create(user_id: user_id, item_id: item_id)
+    DeliverAddress.create(post_code: post_code, prefecture_id: prefecture_id, city: city, address1: address1, address2: address2, phon_number: phon_number, order_id: order.id)
+  end
+
 end
