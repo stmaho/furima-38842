@@ -15,7 +15,7 @@
 
 ### Association
 - has_many :items
-- has_many :orders
+- has_many :orders 
 
 
 ## items テーブル
@@ -34,7 +34,7 @@
 
 ### Association
 - belong_to :user
-- has_one :order
+- has_one :order 
 - belongs_to_active_hash :category
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :shopping_cost
@@ -94,7 +94,7 @@
 | address1           | string      | null: false                    |
 | address2           | string      |                                |
 | phon_number        | string      | null: false                    |
-| credit_card        | references  | null: false, foreign_key: true |
+| order              | references  | null: false, foreign_key: true |
 
 ### Association
 
@@ -102,7 +102,7 @@
 - belong_to :prefecture
 
 
-## orders テーブル
+## orders テーブル  <!--credit_cardsからordersに変更.ブランチを切り替える前にプッシュしてしまったためコメント記載-->
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
