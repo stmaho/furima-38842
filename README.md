@@ -15,7 +15,7 @@
 
 ### Association
 - has_many :items
-- has_many :credit_cards
+- has_many :orders
 
 
 ## items テーブル
@@ -34,7 +34,7 @@
 
 ### Association
 - belong_to :user
-- has_one :credit_card
+- has_one :order
 - belongs_to_active_hash :category
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :shopping_cost
@@ -98,11 +98,11 @@
 
 ### Association
 
-- belong_to :credit_card
+- belong_to :order
 - belong_to :prefecture
 
 
-## credit_cards テーブル
+## orders テーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
