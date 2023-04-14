@@ -36,7 +36,7 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order.errors.full_messages).to include "Post code is invalid. Include hyphen(-)"
       end
       it '都道府県が空では購入ができない'do
-        @order.prefecture_id = ''
+        @order.prefecture_id = '1'
         @order.valid?
         expect(@order.errors.full_messages).to include "Prefecture can't be blank"
       end
@@ -60,7 +60,11 @@ RSpec.describe OrderAddress, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include "Phon number is invalid"
       end
-
+      it '電話番号が9桁以下だと保存できないこと'
+        @order.phon_number = '000000000'
+        @order.valid?
+        expect(@order.errors.full_messages).to include "Phon number is invalid"
+      end
       it '電話番号は半角数値のみ保存可能なこと'do
         @order.phon_number = '０００００００００００'
         @order.valid?
