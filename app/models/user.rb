@@ -7,6 +7,7 @@ class User < ApplicationRecord
     validates_format_of :password, with: PASSWORD_REGEX
   
   has_many :items
+  has_many :orders
         
   validates :nickname, presence: true
   validates :birth_day, presence: true
