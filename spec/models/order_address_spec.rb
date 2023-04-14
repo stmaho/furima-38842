@@ -60,7 +60,7 @@ RSpec.describe OrderAddress, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include "Phon number is invalid"
       end
-      it '電話番号が9桁以下だと保存できないこと'
+      it '電話番号が9桁以下だと保存できないこと' do
         @order.phon_number = '000000000'
         @order.valid?
         expect(@order.errors.full_messages).to include "Phon number is invalid"
@@ -70,6 +70,12 @@ RSpec.describe OrderAddress, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include "Phon number is invalid"
       end
+      it 'tokenが空だと購入できない' do
+        @order.token = ''
+        @order.valid?
+        expect(@order.errors.full_messages).to include "Token can't be blank"
+      end
+      
       it 'userが紐づいていなければ購入ができない'do
         @order.user_id = nil
         @order.valid?
@@ -80,7 +86,9 @@ RSpec.describe OrderAddress, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Item can't be blank")
       end
+      
     end
+
 
   end
 end
